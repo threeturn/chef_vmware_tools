@@ -1,19 +1,18 @@
 name 'vmware_tools'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
-license 'all_rights'
-description 'Installs/Configures vmware_tools'
-long_description 'Installs/Configures vmware_tools'
+license 'MIT'
+description 'Installs vmware tools on virtual machines'
+long_description 'Installs vmware tools on virtual machines'
 version '0.1.0'
-
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/vmware_tools/issues' if respond_to?(:issues_url)
-
-# The `source_url` points to the development reposiory for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/vmware_tools' if respond_to?(:source_url)
+#supports 'windows'
+supports 'debian'
+supports 'ubuntu'
+supports 'redhat'
+supports 'centos'
+supports 'fedora'
+chef_version "~> 12"
+cookbook 'yum-epel', '~> 2.1.1'
+#depends 'chocolatey', '~> 1.1.0'
+issues_url 'https://github.com/MelonSmasher/chef_vmware_tools/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/MelonSmasher/chef_vmware_tools' if respond_to?(:source_url)
