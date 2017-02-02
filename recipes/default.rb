@@ -4,9 +4,9 @@
 #
 
 
-virtual_system = node['virtualization']['system'].equal
+virtual_system = node['virtualization']['system']
 
-if virtual_system.equal? 'vmware'
+if virtual_system === 'vmware'
 
   platofrm_family = node['platform_family']
 
