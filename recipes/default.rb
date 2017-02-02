@@ -4,7 +4,9 @@
 #
 
 
-if node['virtualization']['system'].equal? 'vmware'
+virtual_system = node['virtualization']['system'].equal
+
+if virtual_system.equal? 'vmware'
 
   platofrm_family = node['platform_family']
 
@@ -28,6 +30,13 @@ if node['virtualization']['system'].equal? 'vmware'
         message "The platform family: #{platofrm_family} is not supported by this recipe."
         level :warn
       end
+  end
+
+else
+
+  log 'System Ignored' do
+    message "The system: #{virtual_system} is not supported by this recipe."
+    level :info
   end
 
 end
