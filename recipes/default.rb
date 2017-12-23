@@ -18,12 +18,21 @@ if virtual_system === 'vmware'
         action :upgrade
       end
 
-    #when 'windows'
-    # Choco package is realllly out of date skipping for now.
-    # chocolatey_package '' do
-    #  ignore_failure trues
-    #  action :upgrade
-    #   end
+    when 'freebsd'
+
+      package 'open-vm-tools-nox11' do
+        action :install
+      end
+
+      service 'vmware-guestd' do
+        supports :status => true, :restart => true
+        action [:start, :enable]
+      end
+
+      service 'vmware-kmod' do
+        supports :status => true, :restart => true, :reload => true
+        action [:start, :enable]
+      end
 
     else
       log 'Platform not supported' do
